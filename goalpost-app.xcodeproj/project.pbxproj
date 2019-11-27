@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		70B40D30238EEA8100F65D21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B40D2F238EEA8100F65D21 /* AppDelegate.swift */; };
 		70B40D32238EEA8100F65D21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B40D31238EEA8100F65D21 /* SceneDelegate.swift */; };
-		70B40D34238EEA8100F65D21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B40D33238EEA8100F65D21 /* ViewController.swift */; };
+		70B40D34238EEA8100F65D21 /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B40D33238EEA8100F65D21 /* GoalsVC.swift */; };
 		70B40D37238EEA8100F65D21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B40D35238EEA8100F65D21 /* Main.storyboard */; };
 		70B40D3A238EEA8100F65D21 /* goalpost_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70B40D38238EEA8100F65D21 /* goalpost_app.xcdatamodeld */; };
 		70B40D3C238EEA8500F65D21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70B40D3B238EEA8500F65D21 /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 		70B40D2C238EEA8100F65D21 /* goalpost-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goalpost-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B40D2F238EEA8100F65D21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B40D31238EEA8100F65D21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		70B40D33238EEA8100F65D21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		70B40D33238EEA8100F65D21 /* GoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsVC.swift; sourceTree = "<group>"; };
 		70B40D36238EEA8100F65D21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70B40D39238EEA8100F65D21 /* goalpost_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = goalpost_app.xcdatamodel; sourceTree = "<group>"; };
 		70B40D3B238EEA8500F65D21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		70B40D46238EEA9800F65D21 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				70B40D33238EEA8100F65D21 /* ViewController.swift */,
+				70B40D33238EEA8100F65D21 /* GoalsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,7 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70B40D34238EEA8100F65D21 /* ViewController.swift in Sources */,
+				70B40D34238EEA8100F65D21 /* GoalsVC.swift in Sources */,
 				70B40D30238EEA8100F65D21 /* AppDelegate.swift in Sources */,
 				70B40D3A238EEA8100F65D21 /* goalpost_app.xcdatamodeld in Sources */,
 				70B40D32238EEA8100F65D21 /* SceneDelegate.swift in Sources */,
