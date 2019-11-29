@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		70A75EEB23918C5D000EDD17 /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A75EEA23918C5D000EDD17 /* GoalType.swift */; };
+		70A75EED2391B9A9000EDD17 /* CreateGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A75EEC2391B9A9000EDD17 /* CreateGoalVC.swift */; };
 		70B40D30238EEA8100F65D21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B40D2F238EEA8100F65D21 /* AppDelegate.swift */; };
 		70B40D32238EEA8100F65D21 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B40D31238EEA8100F65D21 /* SceneDelegate.swift */; };
 		70B40D34238EEA8100F65D21 /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B40D33238EEA8100F65D21 /* GoalsVC.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		70A75EEA23918C5D000EDD17 /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
+		70A75EEC2391B9A9000EDD17 /* CreateGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalVC.swift; sourceTree = "<group>"; };
 		70B40D2C238EEA8100F65D21 /* goalpost-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "goalpost-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B40D2F238EEA8100F65D21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70B40D31238EEA8100F65D21 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				70B40D33238EEA8100F65D21 /* GoalsVC.swift */,
+				70A75EEC2391B9A9000EDD17 /* CreateGoalVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				70B40D30238EEA8100F65D21 /* AppDelegate.swift in Sources */,
 				70A75EEB23918C5D000EDD17 /* GoalType.swift in Sources */,
 				70B40D3A238EEA8100F65D21 /* goalpost_app.xcdatamodeld in Sources */,
+				70A75EED2391B9A9000EDD17 /* CreateGoalVC.swift in Sources */,
 				70B40D4B238F195000F65D21 /* GoalCell.swift in Sources */,
 				70B40D32238EEA8100F65D21 /* SceneDelegate.swift in Sources */,
 			);
