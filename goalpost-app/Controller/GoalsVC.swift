@@ -70,7 +70,7 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
         
         let goal = goals[indexPath.row]
         
-        cell.configureCell(description: goal.goalDescription!, type: GoalType(rawValue: goal.goalType!)!, goalProgressAmount: Int(goal.goalProgress))
+        cell.configureCell(goal: goal)
         
         return cell
         }
@@ -89,13 +89,39 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
             self.fetchCoreDataObject()
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+        
+        let addAction = UITableViewRowAction(style: .normal, title: "ADD 1") { (rowAction, indexPath) in
+            self.setProgress(atIndexPath: indexPath)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
         deleteAction.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        return [deleteAction]
+        addAction.backgroundColor = #colorLiteral(red: 0.9771530032, green: 0.7062081099, blue: 0.1748393774, alpha: 1)
+        
+        return [deleteAction, addAction]
     }
     
 }
 
 extension GoalsVC {
+    
+    func setProgress(atIndexPath indexPath: IndexPath) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        let chosenGoal = goals[indexPath.row]
+        if chosenGoal.goalProgress < chosenGoal.goalCompletonValue {
+            chosenGoal.goalProgress += 1
+        } else {
+            return
+        }
+        
+        do {
+            try managedContext.save()
+            print("Successfully set progress!")
+        } catch {
+            debugPrint("Could not set progress: \(error.localizedDescription)")
+        }
+    }
     
     func removeGoal(atIndexPath indexPath: IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
