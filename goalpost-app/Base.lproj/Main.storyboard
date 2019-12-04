@@ -194,15 +194,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pb-8R-X6P" userLabel="GoalRemovedView">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goal Removed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bi-sZ-neG">
-                                        <rect key="frame" x="18" y="15.5" width="95" height="19.5"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal Removed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bi-sZ-neG">
+                                        <rect key="frame" x="18" y="15.5" width="95" height="19"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8a-qY-WiT">
-                                        <rect key="frame" x="287" y="6.5" width="70" height="37"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8a-qY-WiT">
+                                        <rect key="frame" x="290" y="13" width="70" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="og2-Wi-Uus"/>
                                         </constraints>
@@ -217,9 +216,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.89020746949999996" green="0.35296350720000003" blue="0.38820499180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="4bi-sZ-neG" firstAttribute="top" secondItem="5pb-8R-X6P" secondAttribute="top" constant="15.5" id="WfZ-Vx-Z4g"/>
+                                    <constraint firstItem="4bi-sZ-neG" firstAttribute="leading" secondItem="5pb-8R-X6P" secondAttribute="leading" constant="18" id="Wh4-Hc-HSS"/>
+                                    <constraint firstItem="B8a-qY-WiT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4bi-sZ-neG" secondAttribute="trailing" constant="8" symbolic="YES" id="aEM-II-Rwu"/>
                                     <constraint firstItem="B8a-qY-WiT" firstAttribute="centerY" secondItem="5pb-8R-X6P" secondAttribute="centerY" id="drh-jd-KT7"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="B8a-qY-WiT" secondAttribute="trailing" constant="10" id="f8p-3y-xhS"/>
-                                    <constraint firstAttribute="height" constant="50" id="q87-of-qEj"/>
+                                    <constraint firstItem="B8a-qY-WiT" firstAttribute="top" secondItem="5pb-8R-X6P" secondAttribute="top" constant="6.5" id="hNG-dZ-lyV"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="q87-of-qEj"/>
+                                    <constraint firstItem="B8a-qY-WiT" firstAttribute="centerY" secondItem="4bi-sZ-neG" secondAttribute="centerY" id="yf5-Xq-4Zl"/>
                                 </constraints>
                             </view>
                         </subviews>
