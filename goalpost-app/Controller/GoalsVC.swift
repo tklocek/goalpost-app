@@ -15,17 +15,58 @@ class GoalsVC: UIViewController {
 
     //Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var undoViewConstraints: NSLayoutConstraint!
+    
     
     //Vars
     var goals: [Goal] = []
+    var deletedGoalProgress: Int32 = 0
+    var deletedGoalDescription: String = ""
+    var deletedGoalType: String = ""
+    var deletedGoalCompletionValue: Int32 = 0
+    
+    
+    
+    @IBAction func undoBtnPressed(_ sender: Any) {
+        if deletedGoalDescription != "" {
+            undeleteGoal()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-    
         tableView.isHidden = false
+        
+        undoViewConstraints.constant = 0
     }
+    
+    func hideUndoPanel() {
+        deletedGoalDescription = ""
+        deletedGoalType = ""
+        deletedGoalProgress = 0
+        deletedGoalCompletionValue = 0
+        
+        
+        undoViewConstraints.constant = 0
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func showUndoPanel(undoGoal: Goal) {
+        deletedGoalDescription = undoGoal.goalDescription!
+        deletedGoalType = undoGoal.goalType!
+        deletedGoalProgress = undoGoal.goalProgress
+        deletedGoalCompletionValue = undoGoal.goalCompletonValue
+        
+        undoViewConstraints.constant = 50
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,6 +76,11 @@ class GoalsVC: UIViewController {
     
     @IBAction func addGoalBtnPressed(_ sender: Any) {
         guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else { return }
+        
+        if deletedGoalDescription != "" {
+            hideUndoPanel()
+        }
+        
         presentDetail(createGoalVC)
     }
     
@@ -85,6 +131,9 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
+            if self.goals[indexPath.row].goalDescription != nil {
+                self.showUndoPanel(undoGoal: self.goals[indexPath.row])
+            }
             self.removeGoal(atIndexPath: indexPath)
             self.fetchCoreDataObject()
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -104,6 +153,26 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension GoalsVC {
+    
+    func undeleteGoal() {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let goal = Goal(context: managedContext)
+        
+        goal.goalDescription = deletedGoalDescription
+        goal.goalType = deletedGoalType
+        goal.goalCompletonValue = deletedGoalCompletionValue
+        goal.goalProgress = deletedGoalProgress
+        
+        do {
+            try managedContext.save()
+            self.fetchCoreDataObject()
+            tableView.reloadData()
+            hideUndoPanel()
+        } catch {
+            debugPrint("Could not save undeleted data: \(error.localizedDescription)")
+        }
+        
+    }
     
     func setProgress(atIndexPath indexPath: IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
@@ -134,7 +203,6 @@ extension GoalsVC {
         } catch {
             debugPrint("Could not remove: \(error.localizedDescription)")
         }
-        
     }
     
     func fetch(completion: (_ complete: Bool) -> ()) {
